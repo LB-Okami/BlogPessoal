@@ -19,13 +19,6 @@ public class UsuarioService {
 	
 	public Optional<Usuario> CadastrarUsuario(Usuario usuario) { // Se encarrega de encriptar a senha e passar ela pro banco através do set
 		
-		if(usuario.getIdade() >= 18) {
-			usuario.setMaiorIdade(true);
-		}
-		else if(usuario.getIdade() < 18) {
-			usuario.setMaiorIdade(false);
-		}
-		
 		if(repository.findByEmail(usuario.getEmail()).isPresent())
 			return null;
 		
@@ -51,7 +44,11 @@ public class UsuarioService {
 				
 				user.get().setToken(authHeader);
 				user.get().setNome(usuario.get().getEmail());
-				user.get().setNome(usuario.get().getSenha());
+				user.get().setId(usuario.get().getId());
+				user.get().setFoto(usuario.get().getFoto());
+				user.get().setFoto(usuario.get().getFoto());
+				user.get().setTipo(usuario.get().getTipo());
+				user.get().setEmail(usuario.get().getEmail());
 				
 				
 				return user;
