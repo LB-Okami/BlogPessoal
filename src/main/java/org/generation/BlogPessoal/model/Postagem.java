@@ -76,5 +76,11 @@ public class Postagem {
 		this.data = data;
 	}
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	
 }
